@@ -1,0 +1,5 @@
+PACKAGES="
+    vim
+    nginx
+    docker.io
+"
