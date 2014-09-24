@@ -5,7 +5,7 @@ from .. import files
 from .. import user
 from .. import command
 
-from config import DIRS, PACKAGES, USERS
+from config import *
 
 
 def install():
