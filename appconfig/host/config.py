@@ -15,13 +15,22 @@ PACKAGES = [
     'uwsgi',
 ]
 
+# List of groups to be added
+GROUPS = [
+    {
+        'name': 'docker',
+        'gid': 850,
+    }
+]
+
+
 # List of users to be added
 USERS = [
     {
         'name': 'appbooster',
         'uid': 800,
         'gid': 800,
-        'groups': None,
+        'groups': ['docker'],
         'shell': '/bin/bash',
     },
 ]

@@ -15,7 +15,8 @@ def install():
         apt.install(PACKAGES)
 
         print()
-        print("\033[32mAdding users...\033[0m")
+        print("\033[32mAdding users and groups ...\033[0m")
+        user.add_groups(GROUPS)
         user.add_users(USERS)
 
         print()
