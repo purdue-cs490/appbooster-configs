@@ -23,6 +23,6 @@ def install():
     command.run_sudo_script("""
         cd /home/appbooster/host
         virtualenv --no-site-packages ENV
-        source ENV
+        source ENV/bin/activate
         pip install -r requirements.txt
     """, user="appbooster")
