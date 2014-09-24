@@ -27,7 +27,7 @@ def exit_help():
 
 
 def main():
-    if len(sys.argv != 2):
+    if len(sys.argv) != 2:
         exit_help()
 
     command_arg = sys.argv[1]
