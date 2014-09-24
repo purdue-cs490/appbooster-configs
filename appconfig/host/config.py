@@ -17,12 +17,11 @@ PACKAGES = [
 
 # List of groups to be added
 GROUPS = [
-    {
-        'name': 'docker',
-        'gid': 850,
-    }
+    # {
+    #     'name': 'docker',
+    #     'gid': 850,
+    # }
 ]
-
 
 # List of users to be added
 USERS = [
