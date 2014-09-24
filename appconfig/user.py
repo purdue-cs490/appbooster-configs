@@ -6,7 +6,7 @@ import subprocess
 def _add_grp(name, gid):
     cmd = ['sudo groupadd -r']
     if gid:
-        cmd.extend(['-g', gid])
+        cmd.extend(['-g', str(gid)])
     cmd.append(name)
     return subprocess.check_call(cmd)
 
@@ -14,7 +14,7 @@ def _add_grp(name, gid):
 def _add_usr(name, uid, shell):
     cmd = ['sudo useradd -r -N -m']
     if uid:
-        cmd.extend(['-u', uid])
+        cmd.extend(['-u', str(uid)])
     if shell:
         cmd.extend(['-s', shell])
     cmd.extend('-g', name)
