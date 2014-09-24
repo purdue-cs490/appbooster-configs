@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 
@@ -7,6 +8,11 @@ def update():
 
 
 def install(packages):
-    cmd = 'DEBIAN_FRONTEND=noninteractive apt-get -y install'.split()
+    cmd = 'apt-get -y install'.split()
     cmd.extend(packages)
-    return subprocess.check_call(cmd)
+
+    env = {}
+    env.update(os.environ)
+    env['DEBIAN_FRONTEND'] = 'noninteractive'
+
+    return subprocess.check_call(cmd, env=env)
