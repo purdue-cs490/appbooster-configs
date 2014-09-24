@@ -11,7 +11,7 @@ def install_dir(directory):
         return
 
     if not os.path.exists(dir_path):
-        os.path.mkdir(dir_path)
+        os.mkdir(dir_path)
 
     dir_perm = directory.get('perm')
     if dir_perm:
