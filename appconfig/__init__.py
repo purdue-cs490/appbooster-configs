@@ -3,6 +3,10 @@ from __future__ import print_function
 import sys
 
 
+def _err_print(s):
+    print(s, file=sys.stderr)
+
+
 def host():
     from host import install
     sys.exit(install())
@@ -14,7 +18,11 @@ def container():
 
 
 def exit_help():
-    print('Usage: install.py [command]', file=sys.stderr)
+    _err_print('Usage: %s [role]' % sys.argv[0])
+    _err_print('')
+    _err_print('roles:')
+    _err_print('    host')
+    _err_print('    container')
     sys.exit(1)
 
 
