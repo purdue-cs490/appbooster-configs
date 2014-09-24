@@ -3,11 +3,12 @@ PACKAGES = [
     'vim',
     'git',
     'nginx',
+    'mysql-server-5.5',
     'docker.io',
     'python2.7',
     'python-pip',
     'python-virtualenv',
-    'mysql-server-5.5',
+    'uwsgi',
 ]
 
 # List of users to be added
