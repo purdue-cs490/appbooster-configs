@@ -10,7 +10,7 @@ def clone_update_git(git_url, path):
         command.run('git clone %s %s' % (git_url, path))
 
     fetch_cmd = cmd[:]
-    fetch_cmd.append('fetch origin')
+    fetch_cmd.extend('fetch origin'.split())
     command.run(fetch_cmd)
 
     reset_cmd = cmd[:]
