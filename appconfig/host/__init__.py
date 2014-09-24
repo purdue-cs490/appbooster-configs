@@ -25,6 +25,7 @@ def install():
         print()
         print("\033[32mSetting up appbooster host...\033[0m")
         command.run_sudo_script("""
+            set -e
             cd /home/appbooster/host
             virtualenv --no-site-packages ENV
             source ENV/bin/activate
