@@ -27,11 +27,10 @@ def exit_help():
 
 
 def main():
-    try:
-        command_arg = sys.argv[1]
-    except IndexError:
+    if len(sys.argv != 2):
         exit_help()
 
+    command_arg = sys.argv[1]
     command = globals().get(command_arg)
 
     if not command:
