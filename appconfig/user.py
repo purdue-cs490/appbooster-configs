@@ -69,7 +69,7 @@ def add_usr_grp(name, uid=None, gid=None, groups=None, shell='/bin/bash'):
 
 def add_grp(name, gid=None):
     try:
-        grp.getgrname(name)
+        grp.getgrnam(name)
         _add_grp(name, gid, mod=True)
     except KeyError:
         _add_grp(name, gid)
