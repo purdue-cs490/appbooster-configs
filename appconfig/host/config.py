@@ -17,7 +17,7 @@ USERS = [
         'name': 'appbooster',
         'uid': 800,
         'gid': 800,
-        'shell': '/bin/false',
+        'shell': '/bin/bash',
     },
 ]
 
