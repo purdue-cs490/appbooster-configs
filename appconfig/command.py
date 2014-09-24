@@ -11,7 +11,7 @@ def run(cmd, env=None):
     if env:
         envs.update(env)
 
-    return subprocess.check_run(cmd, env=envs)
+    return subprocess.check_call(cmd, env=envs)
 
 
 def run_script(script):
