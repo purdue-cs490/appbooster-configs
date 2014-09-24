@@ -1,11 +1,11 @@
 #!/bin/bash
 
 case $1 in
-    brain)
-        exec `dirname ${BASH_SOURCE}`/brain/install.sh
+    host)
+        exec `dirname ${BASH_SOURCE}`/host/install.sh
         ;;
-    zombine)
-        echo "I want brains!!"
+    container)
+        echo "I need to be contained!!"
         ;;
     *)
         echo "??"
