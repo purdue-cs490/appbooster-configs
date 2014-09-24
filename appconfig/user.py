@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import grp
 import pwd
 
@@ -5,6 +7,8 @@ import command
 
 
 def _add_grp(name, gid):
+    print("Adding group (%s) ..." % gid)
+
     cmd = 'groupadd -r'.split()
 
     if gid:
@@ -16,6 +20,8 @@ def _add_grp(name, gid):
 
 
 def _add_usr(name, uid, gid, shell):
+    print("Adding user '%s' (%s:%s) ..." % (name, uid, gid))
+
     cmd = 'useradd -r -N -m'.split()
 
     if uid:
