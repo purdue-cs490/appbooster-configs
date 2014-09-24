@@ -2,7 +2,7 @@ import grp
 import os
 import pwd
 
-from .. import git
+import git
 
 
 def install_dir(directory):
