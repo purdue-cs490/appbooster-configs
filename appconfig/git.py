@@ -5,7 +5,7 @@ import subprocess
 def clone_update_git(git_url, path):
     cmd = ('git --git-dir %s' % os.path.join(path, '.git')).split()
 
-    if not os.path.exists(path):
+    if not os.path.exists(os.path.join(path, '.git')):
         subprocess.check_call(('git clone %s %s' % (git_url, path)).split())
 
     fetch_cmd = cmd[:]
