@@ -6,35 +6,49 @@ import command
 
 def _add_grp(name, gid):
     cmd = 'groupadd -r'.split()
+
     if gid:
         cmd.extend(['-g', str(gid)])
+
     cmd.append(name)
 
     return command.run(cmd)
 
 
-def _add_usr(name, uid, shell):
+def _add_usr(name, uid, gid, shell):
     cmd = 'useradd -r -N -m'.split()
+
     if uid:
         cmd.extend(['-u', str(uid)])
+
     if shell:
         cmd.extend(['-s', shell])
-    cmd.extend(['-g', name])
+
+    if gid:
+        cmd.extend(['-g', str(gid)])
+    else:
+        cmd.extend(['-g', name])
+
     cmd.append(name)
 
     return command.run(cmd)
 
 
 def add_usr_grp(name, uid=None, gid=None, shell='/bin/bash'):
+    if isinstance(gid, int):
+        gid_check_func = grp.getgrgid
+    else:
+        gid_check_func = grp.getgrnam
+
     try:
-        grp.getgrnam(name)
+        gid_check_func(gid)
     except KeyError:
         _add_grp(name, gid)
 
     try:
         pwd.getpwnam(name)
     except KeyError:
-        _add_usr(name, uid, shell)
+        _add_usr(name, uid, gid, shell)
 
 
 def add_users(users):
