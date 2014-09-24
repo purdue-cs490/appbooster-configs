@@ -5,7 +5,7 @@ import command
 
 
 def _add_grp(name, gid):
-    cmd = 'sudo groupadd -r'.split()
+    cmd = 'groupadd -r'.split()
     if gid:
         cmd.extend(['-g', str(gid)])
     cmd.append(name)
@@ -14,7 +14,7 @@ def _add_grp(name, gid):
 
 
 def _add_usr(name, uid, shell):
-    cmd = 'sudo useradd -r -N -m'.split()
+    cmd = 'useradd -r -N -m'.split()
     if uid:
         cmd.extend(['-u', str(uid)])
     if shell:
