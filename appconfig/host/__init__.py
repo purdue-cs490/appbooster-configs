@@ -33,7 +33,7 @@ def install():
         """, user="appbooster")
 
         print()
-        print("\033[32mSucceed\033[0m")
+        print("\033[32mSucceed!\033[0m")
     except KeyboardInterrupt:
         pass
     except Exception:
