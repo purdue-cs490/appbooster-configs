@@ -1,7 +1,7 @@
 from __future__ import print_function
 
-from .. import apt, user
-from config import PACKAGES, USERS
+from .. import apt, files, user
+from config import DIRS, PACKAGES, USERS
 
 
 def install():
@@ -11,3 +11,6 @@ def install():
 
     print('Adding users...')
     user.add_users(USERS)
+
+    print('Installing directories...')
+    files.install_dirs(DIRS)
