@@ -1,6 +1,7 @@
 import grp
 import pwd
-import subprocess
+
+import command
 
 
 def _add_grp(name, gid):
@@ -8,7 +9,8 @@ def _add_grp(name, gid):
     if gid:
         cmd.extend(['-g', str(gid)])
     cmd.append(name)
-    return subprocess.check_call(cmd)
+
+    return command.run(cmd)
 
 
 def _add_usr(name, uid, shell):
@@ -19,7 +21,8 @@ def _add_usr(name, uid, shell):
         cmd.extend(['-s', shell])
     cmd.extend(['-g', name])
     cmd.append(name)
-    return subprocess.check_call(cmd)
+
+    return command.run(cmd)
 
 
 def add_usr_grp(name, uid=None, gid=None, shell='/bin/bash'):
