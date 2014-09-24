@@ -8,6 +8,7 @@ PACKAGES = [
     'libmysqlclient-dev',
     'docker.io',
     'python2.7',
+    'libpython2.7-dev',
     'python-pip',
     'python-virtualenv',
     'uwsgi',
