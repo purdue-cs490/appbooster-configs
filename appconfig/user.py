@@ -17,7 +17,7 @@ def _add_usr(name, uid, shell):
         cmd.extend(['-u', str(uid)])
     if shell:
         cmd.extend(['-s', shell])
-    cmd.extend('-g', name)
+    cmd.extend(['-g', name])
     return subprocess.check_call(cmd)
 
 
