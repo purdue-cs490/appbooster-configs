@@ -13,12 +13,15 @@ def install():
     apt.update()
     apt.install(PACKAGES)
 
+    print()
     print('Adding users...')
     user.add_users(USERS)
 
+    print()
     print('Installing directories...')
     files.install_dirs(DIRS)
 
+    print()
     print('Setting up appbooster host...')
     command.run_sudo_script("""
         cd /home/appbooster/host
