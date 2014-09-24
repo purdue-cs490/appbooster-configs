@@ -19,7 +19,7 @@ def _add_grp(name, gid):
     return command.run(cmd)
 
 
-def _add_usr(name, uid, gid, shell):
+def _add_usr(name, uid, gid, groups, shell):
     print("Adding user '%s' (%s:%s) ..." % (name, uid, gid))
 
     cmd = 'useradd -r -N -m'.split()
@@ -35,12 +35,15 @@ def _add_usr(name, uid, gid, shell):
     else:
         cmd.extend(['-g', name])
 
+    if groups:
+        cmd.extend(['-G', ','.join(groups)])
+
     cmd.append(name)
 
     return command.run(cmd)
 
 
-def add_usr_grp(name, uid=None, gid=None, shell='/bin/bash'):
+def add_usr_grp(name, uid=None, gid=None, groups=None, shell='/bin/bash'):
     if isinstance(gid, int):
         gid_check_func = grp.getgrgid
     else:
@@ -54,7 +57,7 @@ def add_usr_grp(name, uid=None, gid=None, shell='/bin/bash'):
     try:
         pwd.getpwnam(name)
     except KeyError:
-        _add_usr(name, uid, gid, shell)
+        _add_usr(name, uid, gid, groups, shell)
 
 
 def add_users(users):
