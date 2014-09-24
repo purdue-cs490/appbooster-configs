@@ -30,6 +30,6 @@ DIRS = [
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
-        'git_install': 'https://github.com/purdue-cs490/appbooster',
+        'git_install': 'https://github.com/purdue-cs490/appbooster.git',
     },
 ]

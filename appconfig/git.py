@@ -8,8 +8,8 @@ def clone_update_git(git_url, path):
         command.run('git clone %s %s' % (git_url, path))
 
     cmds = [
-        'git fetch',
-        'git reset --hard',
+        'git fetch origin',
+        'git reset --hard origin',
     ]
     for cmd in cmds:
         command.run(cmd, cwd=path)
