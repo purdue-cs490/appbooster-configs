@@ -1,5 +1,6 @@
 # List of packages to be installed
 PACKAGES = [
+    'sudo',
     'vim',
     'git',
     'nginx',
