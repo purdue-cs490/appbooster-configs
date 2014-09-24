@@ -5,6 +5,7 @@ PACKAGES = [
     'git',
     'nginx',
     'mysql-server-5.5',
+    'libmysqlclient-dev',
     'docker.io',
     'python2.7',
     'python-pip',
