@@ -1,0 +1,1 @@
+# AppBooster server configurations
