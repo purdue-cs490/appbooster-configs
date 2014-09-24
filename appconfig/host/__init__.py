@@ -31,6 +31,9 @@ def install():
             pip install -r requirements.txt
             deactivate
         """, user="appbooster")
+
+        print()
+        print("\033[32mSucceed\033[0m")
     except KeyboardInterrupt:
         pass
     except Exception:
