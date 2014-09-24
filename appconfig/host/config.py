@@ -20,3 +20,14 @@ USERS = [
         'shell': '/bin/false',
     },
 ]
+
+# Initialize directories
+DIRS = [
+    {
+        'path': '/home/appbooster/host',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appbooster',
+        'git': 'https://github.com/purdue-cs490/appbooster',
+    },
+]
