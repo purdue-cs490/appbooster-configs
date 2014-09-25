@@ -9,12 +9,12 @@ def _err_print(s):
 
 def host():
     from host import install
-    sys.exit(install())
+    return install()
 
 
 def container():
     from container import install
-    sys.exit(install())
+    return install()
 
 
 def exit_help():
@@ -23,12 +23,12 @@ def exit_help():
     _err_print('roles:')
     _err_print('    host')
     _err_print('    container')
-    sys.exit(1)
+    return 1
 
 
 def main():
     if len(sys.argv) != 2:
-        exit_help()
+        return exit_help()
 
     command_arg = sys.argv[1]
     command = globals().get(command_arg)
@@ -36,4 +36,4 @@ def main():
     if not command:
         print('???')
     else:
-        command()
+        return command()
