@@ -14,16 +14,13 @@ def install():
         apt.update()
         apt.install(PACKAGES)
 
-        print()
         print("\033[32mAdding users and groups ...\033[0m")
         user.add_groups(GROUPS)
         user.add_users(USERS)
 
-        print()
         print("\033[32mInstalling directories...\033[0m")
         files.install_dirs(DIRS)
 
-        print()
         print("\033[32mSetting up appbooster host...\033[0m")
         command.run_sudo_script("""
             set -e
