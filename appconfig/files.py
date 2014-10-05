@@ -58,6 +58,46 @@ def _install_dir(path, perm=None, user=None, group=None, install=False, git_inst
                 os.chown(os.path.join(dir_root, f), -1, group)
 
 
+def _install_file(path, perm=None, user=None, group=None, install=True):
+    if not path:
+        return
+
+    file_dir = os.path.dirname(path)
+    if not os.path.exists(file_dir):
+        os.makedirs(file_dir)
+
+    if install:
+        caller_frame = inspect.stack()[2]
+        caller_module = inspect.getmodule(caller_frame[0])
+        files_root = os.path.join(os.path.dirname(caller_module.__file__), 'files')
+        file_path = os.path.join(files_root, path.lstrip(os.path.sep))
+
+        if os.path.isfile(file_path):
+            shutil.copy(file_path, path)
+
+    # File installation failed
+    if not os.path.isfile(path):
+        return
+
+    if perm:
+        os.chmod(path, perm)
+
+    if user:
+        if not isinstance(user, int):
+            user = pwd.getpwnam(user).pw_uid
+        os.chown(path, user, -1)
+
+    if group:
+        if not isinstance(group, int):
+            group = grp.getgrnam(group).gr_gid
+        os.chown(path, -1, group)
+
+
 def install_dirs(dirs):
     for directory in dirs:
         _install_dir(**directory)
+
+
+def install_files(files):
+    for install_file in files:
+        _install_file(install_file)

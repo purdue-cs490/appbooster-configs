@@ -61,6 +61,15 @@ DIRS = [
 
 FILES = [
     {
-
+        'path': '/etc/default/uwsgi',
+    },
+    {
+        'path': '/etc/nginx/site-enabled/appbooster.com',
+    },
+    {
+        'path': '/etc/uwsgi/apps-enabled/uwsgi.ini',
+    },
+    {
+        'path': '/etc/uwsgi/default.ini',
     },
 ]
