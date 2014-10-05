@@ -9,6 +9,10 @@ from config import *
 
 
 def install():
+    if not os.geteuid() == 0:
+        print("\033[31;1mMust be run as root\033[0m")
+        return 2
+
     try:
         print("\033[32mInstalling packages...\033[0m")
         apt.update()
