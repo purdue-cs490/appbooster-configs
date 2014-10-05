@@ -49,4 +49,10 @@ DIRS = [
         'user': 'appbooster',
         'group': 'appbooster',
     },
+    {
+        'path': '/u/apps',
+        'perm': 01777,
+        'user': 'root',
+        'group': 'root',
+    },
 ]
