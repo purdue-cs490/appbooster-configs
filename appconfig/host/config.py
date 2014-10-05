@@ -58,3 +58,9 @@ DIRS = [
         'group': 'appbooster',
     },
 ]
+
+FILES = [
+    {
+
+    },
+]
