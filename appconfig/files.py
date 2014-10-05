@@ -10,7 +10,7 @@ def install_dir(path, perm=None, user=None, group=None, git_install=None):
         return
 
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)
 
     if git_install:
         git.clone_update_git(git_install, path)
