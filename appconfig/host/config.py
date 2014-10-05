@@ -43,4 +43,10 @@ DIRS = [
         'group': 'appbooster',
         'git_install': 'https://github.com/purdue-cs490/appbooster.git',
     },
+    {
+        'path': '/home/appbooster/logs',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appbooster',
+    },
 ]
