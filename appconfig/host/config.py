@@ -49,6 +49,7 @@ DIRS = [
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
+        'install': True,
     },
     {
         'path': '/u/apps/logs',

@@ -1,19 +1,38 @@
 import grp
+import inspect
 import os
 import pwd
+import shutil
 
 import git
 
 
-def install_dir(path, perm=None, user=None, group=None, git_install=None):
+def _install_dir(path, perm=None, user=None, group=None, install=False, git_install=None):
     if not path:
         return
 
     if not os.path.exists(path):
         os.makedirs(path)
 
+    # Clone git repository first, otherwise git will refuse to clone if the
+    # folder is not empty
     if git_install:
         git.clone_update_git(git_install, path)
+
+    # Copy directory in files folder
+    if install:
+        caller_frame = inspect.stack()[2]
+        caller_module = inspect.getmodule(caller_frame[0])
+        files_root = os.path.join(os.path.dirname(caller_module.__file__), 'files')
+        dir_path = os.path.join(files_root, path)
+
+        if os.path.isdir(dir_path):
+            for dir_file in os.listdir(dir_path):
+                dir_file_path = os.path.join(dir_path, dir_file)
+                if os.path.isdir(dir_file):
+                    shutil.copytree(dir_file_path, path)
+                else:
+                    shutil.copy(dir_file_path, path)
 
     if perm:
         os.chmod(path, perm)
@@ -41,4 +60,4 @@ def install_dir(path, perm=None, user=None, group=None, git_install=None):
 
 def install_dirs(dirs):
     for directory in dirs:
-        install_dir(**directory)
+        _install_dir(**directory)
