@@ -13,6 +13,7 @@ PACKAGES = [
     'python-pip',
     'python-virtualenv',
     'uwsgi',
+    'uwsgi-plugin-python',
 ]
 
 # List of groups to be added
