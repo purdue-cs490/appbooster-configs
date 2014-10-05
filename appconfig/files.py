@@ -100,4 +100,4 @@ def install_dirs(dirs):
 
 def install_files(files):
     for install_file in files:
-        _install_file(install_file)
+        _install_file(**install_file)
