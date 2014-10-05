@@ -24,7 +24,7 @@ def _install_dir(path, perm=None, user=None, group=None, install=False, git_inst
         caller_frame = inspect.stack()[2]
         caller_module = inspect.getmodule(caller_frame[0])
         files_root = os.path.join(os.path.dirname(caller_module.__file__), 'files')
-        dir_path = os.path.join(files_root, path)
+        dir_path = os.path.join(files_root, path.lstrip(os.path.sep))
 
         if os.path.isdir(dir_path):
             for dir_file in os.listdir(dir_path):
