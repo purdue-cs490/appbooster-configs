@@ -43,9 +43,14 @@ def install():
             export ENVIRONMENT=prod
             ./manage.py migrate
             deactivate
-        """, user="appbooster")
+            """, user="appbooster")
 
-        print()
+        print("\033[32mRestarting services...\033[0m")
+        command.run_script("""
+            systemctl reload uwsgi
+            systemctl reload nginx
+            """)
+
         print("\033[32mSucceed!\033[0m")
     except KeyboardInterrupt:
         pass
