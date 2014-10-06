@@ -1,8 +1,14 @@
 # AppBooster Server Configurations
 
-Run ```sudo ./install [role]``` to apply configurations on certain servers.
+## Bootstrapping
 
-# Configuration file location
+```
+sudo git clone https://github.com/purdue-cs490/appbooster-configs.git /srv/configs
+cd /srv/configs
+sudo ./install [role]
+```
+
+## Configuration file location
 
 Host configurations: ```appconfig/host/config.py```
 
