@@ -33,6 +33,8 @@ def install():
         print("\033[32mUpdating grub configs...\033[0m")
         command.run('update-grub')
 
+        print("\033[32mSetting up MySQL...\033[0m")
+
         print("\033[32mSetting up appbooster host...\033[0m")
         command.run_sudo_script("""
             set -e
