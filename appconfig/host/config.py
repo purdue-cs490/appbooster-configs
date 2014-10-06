@@ -63,7 +63,7 @@ FILES = [
         'path': '/etc/default/grub',
     },
     {
-        'path': '/etc/nginx/site-enabled/appbooster.com',
+        'path': '/etc/nginx/sites-enabled/appbooster.com',
     },
     {
         'path': '/etc/uwsgi/apps-enabled/appbooster.ini',
