@@ -64,6 +64,9 @@ FILES = [
         'path': '/etc/default/uwsgi',
     },
     {
+        'path': '/etc/default/grub',
+    },
+    {
         'path': '/etc/nginx/site-enabled/appbooster.com',
     },
     {

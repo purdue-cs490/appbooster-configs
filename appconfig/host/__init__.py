@@ -30,6 +30,9 @@ def install():
         print("\033[32mInstalling files...\033[0m")
         files.install_files(FILES)
 
+        print("\033[32mUpdating grub configs...\033[0m")
+        command.run('update-grub')
+
         print("\033[32mSetting up appbooster host...\033[0m")
         command.run_sudo_script("""
             set -e
