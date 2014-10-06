@@ -20,17 +20,23 @@ PACKAGES = [
 GROUPS = [
     # {
     #     'name': 'docker',
-    #     'gid': 850,
+    #     'gid': 900,
     # }
 ]
 
 # List of users to be added
 USERS = [
     {
+        'name': 'appdcn',
+        'uid': 850,
+        'gid': 850,
+        'shell': '/bin/false',
+    },
+    {
         'name': 'appbooster',
         'uid': 800,
         'gid': 800,
-        'groups': ['docker'],
+        'groups': ['docker', 'appdcn'],
         'shell': '/bin/bash',
     },
 ]
