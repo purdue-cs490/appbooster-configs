@@ -51,14 +51,7 @@ DIRS = [
         'git_install': 'https://github.com/purdue-cs490/appbooster.git',
     },
     {
-        'path': '/u/apps',
-        'perm': 0755,
-        'user': 'appbooster',
-        'group': 'appbooster',
-        'install': True,
-    },
-    {
-        'path': '/u/apps/logs',
+        'path': '/home/appbooster/logs',
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
@@ -67,18 +60,12 @@ DIRS = [
 
 FILES = [
     {
-        'path': '/etc/default/uwsgi',
-    },
-    {
         'path': '/etc/default/grub',
     },
     {
         'path': '/etc/nginx/site-enabled/appbooster.com',
     },
     {
-        'path': '/etc/uwsgi/apps-enabled/uwsgi.ini',
-    },
-    {
-        'path': '/etc/uwsgi/default.ini',
+        'path': '/etc/uwsgi/apps-enabled/host.ini',
     },
 ]

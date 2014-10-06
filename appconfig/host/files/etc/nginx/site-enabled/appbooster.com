@@ -1,6 +1,6 @@
 # the upstream component nginx needs to connect to
 upstream django {
-    server unix:///u/apps/host.socket;
+    server unix:///home/appbooster/host.socket;
 }
 
 # configuration of the server
