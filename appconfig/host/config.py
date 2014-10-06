@@ -66,6 +66,11 @@ FILES = [
         'path': '/etc/nginx/site-enabled/appbooster.com',
     },
     {
-        'path': '/etc/uwsgi/apps-enabled/host.ini',
+        'path': '/etc/uwsgi/apps-enabled/appbooster.ini',
+    },
+    {
+        'path': '/home/appbooster/host.ini',
+        'user': 'appbooster',
+        'group': 'appbooster',
     },
 ]
