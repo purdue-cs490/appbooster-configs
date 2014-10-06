@@ -19,9 +19,9 @@ server {
         alias /home/appbooster/host/media;  # your Django project's media files - amend as required
     }
 
-    location /static {
-        alias /home/appbooster/host/static; # your Django project's static files - amend as required
-    }
+    #location /static {
+    #    alias /home/appbooster/host/static; # your Django project's static files - amend as required
+    #}
 
     # Finally, send all non-media requests to the Django server.
     location / {
