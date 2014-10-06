@@ -56,6 +56,18 @@ DIRS = [
         'user': 'appbooster',
         'group': 'appbooster',
     },
+    {
+        'path': '/u/controls',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appdcn',
+    },
+    {
+        'path': '/u/apps',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appdcn',
+    },
 ]
 
 FILES = [
