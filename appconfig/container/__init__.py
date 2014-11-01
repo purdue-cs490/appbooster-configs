@@ -5,7 +5,6 @@ import os
 from .. import apt
 from .. import files
 from .. import user
-from .. import command
 
 from config import *
 
@@ -30,29 +29,6 @@ def install():
 
         print("\033[32mInstalling files...\033[0m")
         files.install_files(FILES)
-
-        print("\033[32mUpdating grub configs...\033[0m")
-        command.run('update-grub')
-
-        print("\033[32mSetting up MySQL...\033[0m")
-
-        print("\033[32mSetting up appbooster host...\033[0m")
-        command.run_sudo_script("""
-            set -e
-            cd /home/appbooster/host
-            virtualenv --no-site-packages ENV
-            source ENV/bin/activate
-            pip install -r requirements.txt
-            export ENVIRONMENT=prod
-            ./manage.py migrate
-            deactivate
-            """, user="appbooster")
-
-        print("\033[32mRestarting services...\033[0m")
-        command.run_script("""
-            systemctl reload uwsgi
-            systemctl reload nginx
-            """)
 
         print("\033[32mSucceed!\033[0m")
     except KeyboardInterrupt:
