@@ -33,7 +33,7 @@ USERS = [
         'shell': '/bin/false',
     },
     {
-        'name': 'appdgit',
+        'name': 'git',
         'uid': 860,
         'gid': 860,
         'shell': '/bin/false',
@@ -42,7 +42,7 @@ USERS = [
         'name': 'appbooster',
         'uid': 800,
         'gid': 800,
-        'groups': ['docker', 'appdcn', 'appdgit'],
+        'groups': ['docker', 'appdcn', 'git'],
         'shell': '/bin/bash',
     },
 ]
