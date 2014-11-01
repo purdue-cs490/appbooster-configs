@@ -26,7 +26,7 @@ USERS = [
         'name': 'appbooster',
         'uid': 800,
         'gid': 800,
-        'groups': ['docker', 'appdcn'],
+        'groups': ['appdcn'],
         'shell': '/bin/bash',
     },
 ]
