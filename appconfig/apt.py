@@ -6,6 +6,11 @@ def update():
     return command.run(cmd)
 
 
+def upgrade():
+    cmd = 'apt-get upgrade -y'
+    return command.run(cmd)
+
+
 def install(packages):
     cmd = 'apt-get -y install'.split()
     cmd.extend(packages)
