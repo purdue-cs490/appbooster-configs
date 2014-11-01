@@ -33,10 +33,16 @@ USERS = [
         'shell': '/bin/false',
     },
     {
+        'name': 'appdgit',
+        'uid': 860,
+        'gid': 860,
+        'shell': '/bin/false',
+    },
+    {
         'name': 'appbooster',
         'uid': 800,
         'gid': 800,
-        'groups': ['docker', 'appdcn'],
+        'groups': ['docker', 'appdcn', 'appdgit'],
         'shell': '/bin/bash',
     },
 ]
