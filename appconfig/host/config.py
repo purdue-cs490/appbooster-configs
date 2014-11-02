@@ -98,4 +98,9 @@ FILES = [
         'user': 'appbooster',
         'group': 'appbooster',
     },
+    {
+        'path': '/home/appbooster/.ssh/config',
+        'user': 'appbooster',
+        'group': 'appbooster',
+    }
 ]
