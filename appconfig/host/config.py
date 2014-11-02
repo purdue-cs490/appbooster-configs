@@ -37,7 +37,7 @@ USERS = [
         'name': 'git',
         'uid': 860,
         'gid': 860,
-        'shell': '/bin/false',
+        'shell': '/bin/bash',
     },
     {
         'name': 'appbooster',
