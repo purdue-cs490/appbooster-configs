@@ -36,6 +36,19 @@ def install():
 
         print("\033[32mSetting up MySQL...\033[0m")
 
+        print("\033[32mSetting up Git server...\033[0m")
+        command.run_sudo_script("""
+            set -e
+            if [ ! -f ~/.ssh/id_rsa ]; then
+                ssh-keygen -q -f /home/appbooster/.ssh/id_rsa -N ""
+            fi
+            """, user="appbooster")
+        command.run_sudo_script("""
+            set -e
+            cd ~
+            gitolite setup -pk /home/appbooster/.ssh/id_rsa.pub
+            """, user="git")
+
         print("\033[32mSetting up appbooster host...\033[0m")
         command.run_sudo_script("""
             set -e
