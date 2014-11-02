@@ -45,8 +45,10 @@ def install():
             """, user="appbooster")
         command.run_sudo_script("""
             set -e
-            cd ~
-            gitolite setup -pk /home/appbooster/.ssh/id_rsa.pub
+            if [ ! -d /home/git/repositories/gitolite-admin.git ]; then
+                cd ~
+                gitolite setup -pk /home/appbooster/.ssh/id_rsa.pub
+            fi
             """, user="git")
 
         print("\033[32mSetting up appbooster host...\033[0m")
