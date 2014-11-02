@@ -51,6 +51,12 @@ USERS = [
 # Initialize directories
 DIRS = [
     {
+        'path': '/home/appbooster/.ssh',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appbooster',
+    },
+    {
         'path': '/home/appbooster/host',
         'perm': 0755,
         'user': 'appbooster',
