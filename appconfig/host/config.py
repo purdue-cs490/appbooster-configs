@@ -81,6 +81,12 @@ DIRS = [
         'user': 'appbooster',
         'group': 'appdcn',
     },
+    {
+        'path': '/etc/nginx/sites-enabled',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appbooster',
+    },
 ]
 
 FILES = [
