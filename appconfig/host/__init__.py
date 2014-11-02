@@ -39,7 +39,7 @@ def install():
         print("\033[32mSetting up Git server...\033[0m")
         command.run_sudo_script("""
             set -e
-            if [ ! -f ~/.ssh/id_rsa ]; then
+            if [ ! -f ~/.ssh/appbooster ]; then
                 ssh-keygen -q -f /home/appbooster/.ssh/appbooster -N ""
             fi
             """, user="appbooster")
