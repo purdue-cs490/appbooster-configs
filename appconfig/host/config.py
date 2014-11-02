@@ -14,6 +14,7 @@ PACKAGES = [
     'python-virtualenv',
     'uwsgi',
     'uwsgi-plugin-python',
+    'gitolite3',
 ]
 
 # List of groups to be added
