@@ -47,7 +47,7 @@ def install():
             set -e
             if [ ! -d /home/git/repositories/gitolite-admin.git ]; then
                 cd ~
-                gitolite setup -pk /home/appbooster/.ssh/id_rsa.pub
+                gitolite setup -pk /home/appbooster/.ssh/id_rsa.pub -a appbooster
             fi
             """, user="git")
 
