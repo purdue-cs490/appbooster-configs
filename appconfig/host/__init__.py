@@ -40,14 +40,14 @@ def install():
         command.run_sudo_script("""
             set -e
             if [ ! -f ~/.ssh/id_rsa ]; then
-                ssh-keygen -q -f /home/appbooster/.ssh/id_rsa -N ""
+                ssh-keygen -q -f /home/appbooster/.ssh/appbooster -N ""
             fi
             """, user="appbooster")
         command.run_sudo_script("""
             set -e
             if [ ! -d /home/git/repositories/gitolite-admin.git ]; then
                 cd ~
-                gitolite setup -pk /home/appbooster/.ssh/id_rsa.pub
+                gitolite setup -pk /home/appbooster/.ssh/appbooster.pub
             fi
             """, user="git")
 
