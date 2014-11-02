@@ -42,6 +42,8 @@ def install():
             if [ ! -f ~/.ssh/appbooster ]; then
                 ssh-keygen -q -f /home/appbooster/.ssh/appbooster -N ""
             fi
+            git config --global user.name "appbooster"
+            git config --global user.email "appbooster@localhost"
             """, user="appbooster")
         command.run_sudo_script("""
             set -e
