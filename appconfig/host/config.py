@@ -111,5 +111,8 @@ FILES = [
         'path': '/home/appbooster/.ssh/config',
         'user': 'appbooster',
         'group': 'appbooster',
-    }
+    },
+    {
+        'path': '/usr/local/lib/systemd/system/docker-autostart.service',
+    },
 ]

@@ -79,6 +79,12 @@ def install():
             systemctl reload nginx
             """)
 
+        print_green("Enabling systemd services...")
+        command.run_script("""
+            systemctl daemon-reload
+            systemctl enable docker-autostart.service
+            """)
+
         print_green("Succeed!")
     except KeyboardInterrupt:
         pass
