@@ -10,33 +10,41 @@ from .. import command
 from config import *
 
 
+def print_green(s):
+    print('\033[32m' + s + '\033[0m')
+
+
+def print_red(s):
+    print('\033[31;1m' + s + '\033[0m')
+
+
 def install():
     if not os.geteuid() == 0:
-        print("\033[31;1mMust be run as root\033[0m")
+        print_red("Must be run as root")
         return 2
 
     try:
-        print("\033[32mInstalling packages...\033[0m")
+        print_green("Installing packages...")
         apt.update()
         apt.upgrade()
         apt.install(PACKAGES)
 
-        print("\033[32mAdding users and groups ...\033[0m")
+        print_green("Adding users and groups...")
         user.add_groups(GROUPS)
         user.add_users(USERS)
 
-        print("\033[32mInstalling directories...\033[0m")
+        print_green("Installing directories...")
         files.install_dirs(DIRS)
 
-        print("\033[32mInstalling files...\033[0m")
+        print_green("Installing files...")
         files.install_files(FILES)
 
-        print("\033[32mUpdating grub configs...\033[0m")
+        print_green("Updating grub configs...")
         command.run('update-grub')
 
-        print("\033[32mSetting up MySQL...\033[0m")
+        print_green("Setting up MySQL...")
 
-        print("\033[32mSetting up Git server...\033[0m")
+        print_green("Setting up Git server...")
         command.run_sudo_script("""
             set -e
             if [ ! -f ~/.ssh/appbooster ]; then
@@ -53,7 +61,7 @@ def install():
             fi
             """, user="git")
 
-        print("\033[32mSetting up appbooster host...\033[0m")
+        print_green("Setting up appbooster host...")
         command.run_sudo_script("""
             set -e
             cd /home/appbooster/host
@@ -65,15 +73,15 @@ def install():
             deactivate
             """, user="appbooster")
 
-        print("\033[32mRestarting services...\033[0m")
+        print_green("Restarting services...")
         command.run_script("""
             systemctl reload uwsgi
             systemctl reload nginx
             """)
 
-        print("\033[32mSucceed!\033[0m")
+        print_green("Succeed!")
     except KeyboardInterrupt:
         pass
     except Exception:
-        print("\033[31;1mError:\033[0m")
+        print_red("Error:")
         raise
