@@ -45,7 +45,11 @@ def _install_dir(path, perm=None, user=None, group=None, install=False, git_inst
             for d in dirnames:
                 os.chown(os.path.join(dir_root, d), user, -1)
             for f in filenames:
-                os.chown(os.path.join(dir_root, f), user, -1)
+                f_path = os.path.join(dir_root, f)
+                if not os.path.islink(f_path):
+                    os.chown(f_path, user, -1)
+                else:
+                    os.lchown(f_path, user, -1)
 
     if group:
         if not isinstance(group, int):
@@ -55,7 +59,11 @@ def _install_dir(path, perm=None, user=None, group=None, install=False, git_inst
             for d in dirnames:
                 os.chown(os.path.join(dir_root, d), -1, group)
             for f in filenames:
-                os.chown(os.path.join(dir_root, f), -1, group)
+                f_path = os.path.join(dir_root, f)
+                if not os.path.islink(f_path):
+                    os.chown(f_path, -1, group)
+                else:
+                    os.lchown(f_path, -1, group)
 
 
 def _install_file(path, perm=None, user=None, group=None, install=True):
@@ -85,12 +93,18 @@ def _install_file(path, perm=None, user=None, group=None, install=True):
     if user:
         if not isinstance(user, int):
             user = pwd.getpwnam(user).pw_uid
-        os.chown(path, user, -1)
+        if not os.path.islink(path):
+            os.chown(path, user, -1)
+        else:
+            os.lchown(path, user, -1)
 
     if group:
         if not isinstance(group, int):
             group = grp.getgrnam(group).gr_gid
-        os.chown(path, -1, group)
+        if not os.path.islink(path):
+            os.chown(path, -1, group)
+        else:
+            os.lchown(path, -1, group)
 
 
 def install_dirs(dirs):
