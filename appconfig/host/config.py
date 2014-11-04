@@ -87,6 +87,9 @@ DIRS = [
         'user': 'appbooster',
         'group': 'appbooster',
     },
+    {
+        'path': '/usr/local/lib/systemd/system',
+    },
 ]
 
 FILES = [
