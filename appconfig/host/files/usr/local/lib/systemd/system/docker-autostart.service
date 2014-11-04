@@ -4,7 +4,7 @@ After=docker.service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c "for c in `docker ps -a -q`; do docker start \$c; done"
+ExecStart=/bin/bash -c "for c in `docker ps -a -q`; do docker start $c; done"
 
 [Install]
 WantedBy=multi-user.target
