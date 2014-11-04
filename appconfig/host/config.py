@@ -55,12 +55,14 @@ DIRS = [
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
+        'chown_recursive': True,
     },
     {
         'path': '/home/appbooster/host',
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
+        'chown_recursive': True,
         'git_install': 'https://github.com/purdue-cs490/appbooster.git',
     },
     {
@@ -68,6 +70,7 @@ DIRS = [
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
+        'chown_recursive': True,
     },
     {
         'path': '/u/controls',
@@ -86,6 +89,7 @@ DIRS = [
         'perm': 0755,
         'user': 'appbooster',
         'group': 'appbooster',
+        'chown_recursive': True,
     },
     {
         'path': '/usr/local/lib/systemd/system',
