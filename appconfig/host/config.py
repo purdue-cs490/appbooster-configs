@@ -16,6 +16,8 @@ PACKAGES = [
     'uwsgi',
     'uwsgi-plugin-python',
     'gitolite3',
+    'redis-server',
+    'redis-tools',
 ]
 
 # List of groups to be added
