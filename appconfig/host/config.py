@@ -67,6 +67,14 @@ DIRS = [
         'git_install': 'https://github.com/purdue-cs490/appbooster.git',
     },
     {
+        'path': '/home/appbooster/stats',
+        'perm': 0755,
+        'user': 'appbooster',
+        'group': 'appbooster',
+        'chown_recursive': True,
+        'git_install': 'https://github.com/purdue-cs490/appbooster-stats.git'
+    },
+    {
         'path': '/home/appbooster/logs',
         'perm': 0755,
         'user': 'appbooster',
@@ -105,10 +113,28 @@ FILES = [
         'path': '/etc/nginx/sites-enabled/appbooster.com',
     },
     {
+        'path': '/etc/nginx/sites-enabled/appbooster-stats',
+    },
+    {
         'path': '/etc/uwsgi/apps-enabled/appbooster.ini',
     },
     {
         'path': '/home/appbooster/host.ini',
+        'user': 'appbooster',
+        'group': 'appbooster',
+    },
+    {
+        'path': '/home/appbooster/stats.ini',
+        'user': 'appbooster',
+        'group': 'appbooster',
+    },
+    {
+        'path': '/home/appbooster/logs/stats_nginx_access',
+        'user': 'appbooster',
+        'group': 'appbooster',
+    },
+    {
+        'path': '/home/appbooster/logs/stats_nginx_error',
         'user': 'appbooster',
         'group': 'appbooster',
     },
