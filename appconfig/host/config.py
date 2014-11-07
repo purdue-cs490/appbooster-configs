@@ -105,6 +105,13 @@ DIRS = [
     {
         'path': '/usr/local/lib/systemd/system',
     },
+    {
+        'path': '/etc/logstash/conf.d',
+        'perm': 0775,
+        'user': 'appbooster',
+        'group': 'appbooster',
+        'chown_recursive': True,
+    },
 ]
 
 FILES = [
