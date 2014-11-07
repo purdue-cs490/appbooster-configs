@@ -52,14 +52,14 @@ def install():
             fi
             git config --global user.name "appbooster"
             git config --global user.email "appbooster@localhost"
-            """, user="appbooster")
+            """, user='appbooster')
         command.run_sudo_script("""
             set -e
             if [ ! -d /home/git/repositories/gitolite-admin.git ]; then
                 cd ~
                 gitolite setup -pk /home/appbooster/.ssh/appbooster.pub
             fi
-            """, user="git")
+            """, user='git')
 
         print_green("Setting up appbooster host...")
         command.run_sudo_script("""
@@ -71,7 +71,17 @@ def install():
             export ENVIRONMENT=prod
             ./manage.py migrate
             deactivate
-            """, user="appbooster")
+            """, user='appbooster')
+
+        print_green("Setting up appbooster stats...")
+        command.run_sudo_script("""
+            set -e
+            cd /home/appbooster/stats
+            virtualenv --no-site-packages ENV
+            source ENV/bin/activate
+            pip install -r requirements.txt
+            deactivate
+            """, user='appbooster')
 
         print_green("Restarting services...")
         command.run_script("""
