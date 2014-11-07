@@ -1,6 +1,7 @@
 # List of packages to be installed
 PACKAGES = [
     'build-essential',
+    'wget',
     'sudo',
     'vim',
     'git',
