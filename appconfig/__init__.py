@@ -1,3 +1,10 @@
+"""Usage: %s [role]
+
+roles:
+    host
+    container
+"""
+
 from __future__ import print_function
 
 import sys
@@ -18,11 +25,7 @@ def container():
 
 
 def exit_help():
-    _err_print('Usage: %s [role]' % sys.argv[0])
-    _err_print('')
-    _err_print('roles:')
-    _err_print('    host')
-    _err_print('    container')
+    _err_print(__doc__ % sys.argv[0])
     return 1
 
 
