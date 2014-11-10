@@ -2,10 +2,10 @@ from __future__ import print_function
 
 import os
 
-from .. import apt
-from .. import files
-from .. import user
-from .. import command
+import apt
+import files
+import user
+import command
 
 from config import *
 

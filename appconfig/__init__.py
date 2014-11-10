@@ -7,11 +7,10 @@ roles:
 
 from __future__ import print_function
 
+import os
 import sys
 
-
-def _err_print(s):
-    print(s, file=sys.stderr)
+sys.path.insert(0, os.path.dirname(__file__))
 
 
 def host():
@@ -25,7 +24,7 @@ def container():
 
 
 def exit_help():
-    _err_print(__doc__ % sys.argv[0])
+    print(__doc__ % sys.argv[0], file=sys.stderr)
     return 1
 
 
