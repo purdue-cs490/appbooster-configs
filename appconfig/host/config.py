@@ -155,4 +155,8 @@ FILES = [
     {
         'path': '/usr/local/lib/systemd/system/docker-autostart.service',
     },
+    {
+        'path': '/etc/sudoers.d/appbooster-nginx',
+        'perm': 0440,
+    }
 ]
