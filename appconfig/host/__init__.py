@@ -61,6 +61,11 @@ def install():
             fi
             """, user='git')
 
+        print_green("Setting up MySQL account...")
+        command.run_sudo_script("""
+            mysql -e "CREATE USER 'appbooster'@'localhost' IDENTIFIED BY 'appbooster';"
+            """, check=False)
+
         print_green("Setting up appbooster host...")
         command.run_sudo_script("""
             set -e
