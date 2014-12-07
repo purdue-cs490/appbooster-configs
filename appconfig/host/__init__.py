@@ -89,6 +89,9 @@ def install():
             """, user='appbooster')
 
         print_green("Restarting services...")
+        command.run_sudo_script("""
+            sudo rm -f /etc/nginx/site-enabled/default
+            """)
         command.run_script("""
             systemctl reload uwsgi
             systemctl reload nginx
