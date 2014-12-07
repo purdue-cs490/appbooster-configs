@@ -43,6 +43,11 @@ def install():
         command.run('update-grub')
 
         print_green("Setting up MySQL...")
+        command.run_sudo_script("""
+            mysql -e "CREATE USER 'appbooster'@'localhost' IDENTIFIED BY 'appbooster';
+            CREATE DATABASE appdb;
+            GRANT ALL PRIVILEGES ON appdb.* TO 'appbooster'@'localhost';"
+            """, check=False)
 
         print_green("Setting up Git server...")
         command.run_sudo_script("""
@@ -60,11 +65,6 @@ def install():
                 gitolite setup -pk /home/appbooster/.ssh/appbooster.pub
             fi
             """, user='git')
-
-        print_green("Setting up MySQL account...")
-        command.run_sudo_script("""
-            mysql -e "CREATE USER 'appbooster'@'localhost' IDENTIFIED BY 'appbooster';"
-            """, check=False)
 
         print_green("Setting up appbooster host...")
         command.run_sudo_script("""
