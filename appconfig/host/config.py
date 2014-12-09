@@ -13,6 +13,7 @@ PACKAGES = [
     'libpython2.7-dev',
     'python-pip',
     'python-virtualenv',
+    'python-requests',
     'uwsgi',
     'uwsgi-plugin-python',
     'gitolite3',
