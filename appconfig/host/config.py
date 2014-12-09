@@ -154,6 +154,12 @@ FILES = [
         'group': 'appbooster',
     },
     {
+        'path': '/home/git/.gitolite.rc',
+        'user': 'git',
+        'group': 'git',
+        'perm': 0400,
+    },
+    {
         'path': '/usr/local/lib/systemd/system/docker-autostart.service',
     },
     {
