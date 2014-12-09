@@ -77,6 +77,9 @@ def install():
             ./manage.py migrate
             deactivate
             """, user='appbooster')
+        command.run_sudo_script("""
+            ln -s /home/appbooster/host/scripts/update /home/git/.gitolite/hooks/common/update.secondary
+            """, user='git')
 
         print_green("Setting up appbooster stats...")
         command.run_sudo_script("""
