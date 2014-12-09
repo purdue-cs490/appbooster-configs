@@ -165,5 +165,9 @@ FILES = [
     {
         'path': '/etc/sudoers.d/appbooster-nginx',
         'perm': 0440,
-    }
+    },
+    {
+        'path': '/etc/sudoers.d/appbooster-git',
+        'perm': 0440,
+    },
 ]

@@ -1,0 +1,1 @@
+appbooster ALL=(git:git) NOPASSWD:ALL
