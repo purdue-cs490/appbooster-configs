@@ -107,16 +107,20 @@ def install():
             systemctl enable docker-autostart.service
             """)
 
-        # print_green("Installing logstash...")
-        # command.run_script("""
-        #     DEB_REPO="deb http://packages.elasticsearch.org/logstash/1.4/debian stable main"
-        #     wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
-        #     if ! grep -Fxq "$DEB_REPO" /etc/apt/sources.list; then
-        #         echo "$DEB_REPO" >> /etc/apt/sources.list
-        #     fi
-        #     apt-get update
-        #     apt-get install logstash
-        #     """)
+        print_green("Installing elasticsearch and logstash...")
+        command.run_script("""
+            ES_DEB_REPO="deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
+            LS_DEB_REPO="deb http://packages.elasticsearch.org/logstash/1.4/debian stable main"
+            wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
+            if ! grep -Fxq "$ES_DEB_REPO" /etc/apt/sources.list; then
+                echo "$ES_DEB_REPO" >> /etc/apt/sources.list
+            fi
+            if ! grep -Fxq "$LS_DEB_REPO" /etc/apt/sources.list; then
+                echo "$LS_DEB_REPO" >> /etc/apt/sources.list
+            fi
+            apt-get update
+            apt-get install logstash elasticsearch
+            """)
 
         print_green("Succeed!")
     except KeyboardInterrupt:
