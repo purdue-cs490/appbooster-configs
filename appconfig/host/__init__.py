@@ -114,17 +114,17 @@ def install():
                 wget -O - https://download.elasticsearch.org/kibana/kibana/$KI_NAME.tar.gz | tar -C /opt -xzf -
             fi
             cat << EOF > /usr/local/lib/systemd/system/kibana.service
-            [Unit]
-            Description=$KI_NAME
-            After=elasticsearch.service
+[Unit]
+Description=$KI_NAME
+After=elasticsearch.service
 
-            [Service]
-            Type=simple
-            ExecStart=/opt/$KI_NAME/bin/kibana
+[Service]
+Type=simple
+ExecStart=/opt/$KI_NAME/bin/kibana
 
-            [Install]
-            WantedBy=multi-user.target
-            EOF
+[Install]
+WantedBy=multi-user.target
+EOF
             """)
 
         print_green("Enabling systemd services...")
