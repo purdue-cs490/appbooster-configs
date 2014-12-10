@@ -119,7 +119,7 @@ def install():
                 echo "$LS_DEB_REPO" >> /etc/apt/sources.list
             fi
             apt-get update
-            apt-get install logstash elasticsearch
+            apt-get -y install logstash elasticsearch
             """)
 
         print_green("Succeed!")
