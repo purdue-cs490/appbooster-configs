@@ -129,6 +129,9 @@ FILES = [
         'path': '/etc/uwsgi/apps-enabled/appbooster.ini',
     },
     {
+        'path': '/etc/logstash/conf.d/appbooster-app-logs.conf',
+    },
+    {
         'path': '/home/appbooster/host.ini',
         'user': 'appbooster',
         'group': 'appbooster',

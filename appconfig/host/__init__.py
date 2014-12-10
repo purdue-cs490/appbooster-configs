@@ -113,6 +113,8 @@ def install():
             systemctl enable docker-autostart.service
             systemctl enable logstash
             systemctl enable elasticsearch
+            systemctl stop logstash
+            systemctl stop elasticsearch
             systemctl start logstash
             systemctl start elasticsearch
             """)
