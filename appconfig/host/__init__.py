@@ -92,21 +92,6 @@ def install():
             deactivate
             """, user='appbooster')
 
-        print_green("Restarting services...")
-        command.run_sudo_script("""
-            sudo rm -f /etc/nginx/site-enabled/default
-            """)
-        command.run_script("""
-            systemctl reload uwsgi
-            systemctl reload nginx
-            """)
-
-        print_green("Enabling systemd services...")
-        command.run_script("""
-            systemctl daemon-reload
-            systemctl enable docker-autostart.service
-            """)
-
         print_green("Installing elasticsearch and logstash...")
         command.run_script("""
             ES_DEB_REPO="deb http://packages.elasticsearch.org/elasticsearch/1.4/debian stable main"
@@ -122,7 +107,26 @@ def install():
             apt-get -y install logstash elasticsearch
             """)
 
+        print_green("Enabling systemd services...")
+        command.run_script("""
+            systemctl daemon-reload
+            systemctl enable docker-autostart.service
+            systemctl enable logstash
+            systemctl enable elasticsearch
+            systemctl start logstash
+            systemctl start elasticsearch
+            """)
+
+        print_green("Restarting services...")
+        command.run_sudo_script("""
+            sudo rm -f /etc/nginx/site-enabled/default
+            """)
+        command.run_script("""
+            systemctl reload uwsgi
+            systemctl reload nginx
+            """)
         print_green("Succeed!")
+
     except KeyboardInterrupt:
         pass
     except Exception:
