@@ -107,16 +107,39 @@ def install():
             apt-get -y install logstash elasticsearch
             """)
 
+        print_green("Installing kibana...")
+        command.run_script("""
+            KI_NAME="kibana-4.0.0-BETA2"
+            if [[ ! -d /opt/$KI_NAME ]]; then
+                wget -O - https://download.elasticsearch.org/kibana/kibana/$KI_NAME.tar.gz | tar -C /opt -xzf -
+            fi
+            cat << EOF > /usr/local/lib/systemd/system/kibana.service
+            [Unit]
+            Description=$KI_NAME
+            After=elasticsearch.service
+
+            [Service]
+            Type=simple
+            ExecStart=/opt/$KI_NAME/bin/kibana
+
+            [Install]
+            WantedBy=multi-user.target
+            EOF
+            """)
+
         print_green("Enabling systemd services...")
         command.run_script("""
             systemctl daemon-reload
             systemctl enable docker-autostart.service
             systemctl enable logstash
             systemctl enable elasticsearch
+            systemctl enable kibana
             systemctl stop logstash
             systemctl stop elasticsearch
             systemctl start logstash
             systemctl start elasticsearch
+            systemctl stop kibana
+            systemctl start kibana
             """)
 
         print_green("Restarting services...")
